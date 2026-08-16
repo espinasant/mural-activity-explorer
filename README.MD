@@ -3,12 +3,11 @@
 A full-stack app for exploring collaborative board activity — filter sticky notes by author, color, and time, and scrub through a timeline to see how the board evolved.
 
 - **Server** — Node.js + Express API (`/notes`, `/stats`)
-- **Client** — React + TypeScript + Vite
+- **Client** — React + TypeScript
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) 18 or later
-- npm (included with Node.js)
 
 ## Environment configuration
 
@@ -16,27 +15,22 @@ The server and client each have their own environment variables. Create the file
 
 ### Server (`server/`)
 
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `PORT`   | No       | `5001`  | Port the API listens on |
+| Variable | Required | Example | Description                |
+| -------- | -------- | ------- | -------------------------- |
+| `PORT`   | Yes      | `5001`  | Port for the API server |
 
-The server reads `PORT` from the shell environment. Set it when starting the dev server:
 
-```bash
-export PORT=5001
-```
+Create `server/.env.local`:
 
-Or pass it inline:
-
-```bash
-PORT=5001 npm run dev
+```env
+PORT=5001
 ```
 
 ### Client (`client/`)
 
-| Variable        | Required | Example                  | Description              |
-|-----------------|----------|--------------------------|--------------------------|
-| `VITE_API_URL`  | Yes      | `http://localhost:5001`  | Base URL of the API server |
+| Variable       | Required | Example                 | Description                |
+| -------------- | -------- | ----------------------- | -------------------------- |
+| `VITE_API_URL` | Yes      | `http://localhost:5001` | Base URL of the API server |
 
 Create `client/.env.local`:
 
@@ -65,7 +59,7 @@ npm install
 From the `server/` directory:
 
 ```bash
-PORT=5001 npm run dev
+npm run dev
 ```
 
 The API will be available at `http://localhost:5001`. You can verify it with:
@@ -88,21 +82,21 @@ Vite will print the local URL (typically `http://localhost:5173`). Open it in yo
 
 ### Server
 
-| Command       | Description                          |
-|---------------|--------------------------------------|
-| `npm run dev` | Start the API with hot reload        |
-| `npm run build` | Compile TypeScript to `dist/`    |
-| `npm start`   | Run the compiled production build    |
+| Command         | Description                       |
+| --------------- | --------------------------------- |
+| `npm run dev`   | Start the API with hot reload     |
+| `npm run build` | Compile TypeScript to `dist/`     |
+| `npm start`     | Run the compiled production build |
 
 ### Client
 
-| Command         | Description                        |
-|-----------------|------------------------------------|
-| `npm run dev`     | Start the Vite dev server          |
-| `npm run build`   | Type-check and build for production |
-| `npm run preview` | Preview the production build       |
-| `npm run lint`    | Run ESLint                         |
-| `npm run typecheck` | Run TypeScript without emitting  |
+| Command             | Description                         |
+| ------------------- | ----------------------------------- |
+| `npm run dev`       | Start the Vite dev server           |
+| `npm run build`     | Type-check and build for production |
+| `npm run preview`   | Preview the production build        |
+| `npm run lint`      | Run ESLint                          |
+| `npm run typecheck` | Run TypeScript without emitting     |
 
 ## Project structure
 
@@ -112,7 +106,7 @@ activity-viewer/
 │   └── src/
 ├── client/          # React frontend
 │   └── src/
-└── ARCHITECTURE.md  # Design decisions and API docs
+└── NOTES.md  # Design decisions and API docs
 ```
 
 For API contracts, data flow, and design rationale, see [ARCHITECTURE.md](./ARCHITECTURE.md).
