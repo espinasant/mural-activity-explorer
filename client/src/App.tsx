@@ -1,11 +1,9 @@
-import { useNotesFilters } from "@/hooks"
 import NotesBoard from "@/components/NotesBoard/NotesBoard"
 import NotesFilters from "@/components/NotesFilters/NotesFilters"
 import { useMemo } from "react"
-import { fetchNotes, fetchNotesStats } from "./api/notes"
-import useQuery from "./hooks/useQuery"
-import useTimelineScrub from "./hooks/useTimelineScrub"
-import type { NotesResponse, NotesStatsResponse } from "./types/notes"
+import { fetchNotes, fetchNotesStats } from "@/api/notes"
+import { useQuery, useTimelineScrub, useNotesFilters } from "@/hooks"
+import type { NotesResponse, NotesStatsResponse } from "@/types/notes"
 
 export function App() {
   const {
