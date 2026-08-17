@@ -29,7 +29,7 @@ const NotesFilters: React.FC<NotesFiltersProps> = ({
   onClearFilters,
 }) => {
   return (
-    <div className="fixed bottom-20 flex w-full max-w-[70%] items-center justify-center gap-4 rounded-lg border border-gray-200 bg-gray-50 p-2 px-3 shadow-lg">
+    <div className="fixed bottom-20 flex w-full max-w-[50%] items-center justify-center gap-4 rounded-lg border border-gray-200 bg-gray-50 p-3 shadow-lg">
       <FilterPanel
         trigger={
           <Button variant="secondary">

@@ -9,16 +9,13 @@ interface NoteCardProps {
 }
 
 const NoteCard = forwardRef<HTMLLIElement, NoteCardProps>(({ note }, ref) => {
-  const { createdAt, text, author, x, y, color, isHidden, isLatest } = note
+  const { createdAt, text, author, x, y, color, isHidden } = note
   const displayColor = getNoteDisplayColor(color)
   return (
     <li
       ref={ref}
       className={cn(
-        "absolute flex w-40 cursor-pointer flex-col gap-2 rounded-md p-3 shadow-lg transition-opacity duration-300 data-[hidden=true]:pointer-events-none data-[hidden=true]:opacity-0",
-        {
-          "shadow-lg border-2 border-green-300 shadow-green-400": isLatest,
-        }
+        "absolute flex w-40 cursor-pointer flex-col gap-2 rounded-md p-3 shadow-lg transition-opacity duration-300 data-[hidden=true]:pointer-events-none data-[hidden=true]:opacity-0"
       )}
       data-hidden={isHidden || undefined}
       style={{ top: y, left: x, backgroundColor: displayColor }}
