@@ -28,8 +28,12 @@ const getAvailableFilters = (notes: Note[]): AvailableFilters => {
   const end = Math.max(...until.values());
 
   return {
-    author: Array.from(authors.values()) as string[],
-    color: Array.from(colors.values()) as string[],
+    author: Array.from(authors.values()).sort((a, b) =>
+      (a as string).localeCompare(b as string),
+    ) as string[],
+    color: Array.from(colors.values()).sort((a, b) =>
+      (a as string).localeCompare(b as string),
+    ) as string[],
     until: {
       start,
       end,
@@ -37,4 +41,4 @@ const getAvailableFilters = (notes: Note[]): AvailableFilters => {
   };
 };
 
-export { isNoteFiltered, getAvailableFilters};
+export { isNoteFiltered, getAvailableFilters };
