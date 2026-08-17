@@ -5,6 +5,8 @@ A full-stack app for exploring collaborative board activity — filter sticky no
 - **Server** — Node.js + Express API (`/notes`, `/stats`)
 - **Client** — React + TypeScript
 
+SEE IT LIVE IN: https://mural-activity-explorer.espina-sant.workers.dev/
+
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) 18 or later
@@ -87,6 +89,8 @@ Vite will print the local URL (typically `http://localhost:5173`). Open it in yo
 | `npm run dev`   | Start the API with hot reload     |
 | `npm run build` | Compile TypeScript to `dist/`     |
 | `npm start`     | Run the compiled production build |
+| `npm run test`  | Run unit tests                    |
+| `npm run test:watch`| Run unit tests in watch mode      |
 
 ### Client
 
@@ -97,6 +101,8 @@ Vite will print the local URL (typically `http://localhost:5173`). Open it in yo
 | `npm run preview`   | Preview the production build        |
 | `npm run lint`      | Run ESLint                          |
 | `npm run typecheck` | Run TypeScript without emitting     |
+| `npm run test`      | Run unit tests                       |
+| `npm run test:watch`| Run unit tests in watch mode         |
 
 ## Project structure
 
