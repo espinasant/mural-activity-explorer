@@ -1,4 +1,4 @@
-import Logger from "./logger";
+import Logger from "./logger.js";
 
 const isValidDate = (date: string | number): boolean => {
   return !isNaN(Number(date));

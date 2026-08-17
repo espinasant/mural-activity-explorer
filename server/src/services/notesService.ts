@@ -1,5 +1,5 @@
-import { findNotes, findAvailableFilters, aggregateNotesStats } from "../repositories/notesRepository";
-import { AvailableFilters, Note, NoteFilter, NotesStats } from "../types";
+import { findNotes, findAvailableFilters, aggregateNotesStats } from "../repositories/notesRepository.js";
+import type { AvailableFilters, Note, NoteFilter, NotesStats } from "../types/index.js";
 
 interface NotesWithFilters {
   notes: Note[];

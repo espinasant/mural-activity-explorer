@@ -1,4 +1,4 @@
-import { AvailableFilters, Note, NoteFilter } from "../types";
+import type { AvailableFilters, Note, NoteFilter } from "../types/index.js";
 
 const isNoteFiltered = (note: Note, filter: NoteFilter) => {
   const { author, color, until } = filter || {};

@@ -1,9 +1,9 @@
 import { readFileSync } from "fs";
-import { NoteFilter, Note, AvailableFilters, NotesStats } from "../types";
+import type { NoteFilter, Note, AvailableFilters, NotesStats } from "../types/index.js";
 import { resolve } from "path";
-import { getAvailableFilters, isNoteFiltered } from "../utils/filter";
-import Logger from "../utils/logger";
-import { getNotesStats } from "../utils/stats";
+import { getAvailableFilters, isNoteFiltered } from "../utils/filter.js";
+import Logger from "../utils/logger.js";
+import { getNotesStats } from "../utils/stats.js";
 
 const DB_PATH = "src/db/notes.json";
 

@@ -1,8 +1,8 @@
 import { Request, Router } from "express";
-import { NoteFilter } from "../types";
-import { getNotesStats, getNotesWithFilters } from "../services/notesService";
-import Logger from "../utils/logger";
-import { parseArray, parseDate } from "../utils/validation";
+import type { NoteFilter } from "../types/index.js";
+import { getNotesStats, getNotesWithFilters } from "../services/notesService.js";
+import Logger from "../utils/logger.js";
+import { parseArray, parseDate } from "../utils/validation.js";
 
 interface RawNoteQuery {
   author?: string | string[];

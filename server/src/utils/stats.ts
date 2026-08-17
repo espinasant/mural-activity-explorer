@@ -1,4 +1,4 @@
-import { Note, NotesStats } from "../types";
+import type { Note, NotesStats } from "../types/index.js";
 
 const getNotesStats = (notes: Note[]): NotesStats => {
   return {
