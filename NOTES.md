@@ -76,13 +76,13 @@ React client                          NodeJS Service
 
 ## UX decisions
 
-- **Bottom-anchored control bar** — filters and timeline sit in a fixed bar at the bottom so the board stays unobstructed. The filter panel opens upward in a popover to avoid covering notes.
-- **Inline stats in filters** — each author/color checkbox shows its note count from the stats endpoint, so users can see distribution before filtering.
-- **Color swatches** — filter options for note colors include a visual swatch, not just a label.
-- **Smooth timeline scrubbing** — notes fade out with a CSS transition as the cutoff moves; no jarring pop-in/out during drag.
-- **Pan/zoom defaults** — board starts at 80% scale with grab cursor; bounds derived from note positions so users can't pan into empty space indefinitely.
-- **Shareable URL** — Filters and timeline are URL query params, so users can share and bookmark specific views with collaborators.
-- **URL as undo** — filter changes push history entries (back button restores prior view); timeline commits do the same on slider release.
+- **Bottom-anchored control bar**: filters and timeline sit in a fixed bar at the bottom so the board stays unobstructed. The filter panel opens upward in a popover to avoid covering notes.
+- **Inline stats in filters**: each author/color checkbox shows its note count from the stats endpoint, so users can see distribution before filtering.
+- **Color swatches:** filter options for note colors include a visual swatch, not just a label.
+- **Smooth timeline scrubbing**: notes fade out with a CSS transition as the cutoff moves; no jarring pop-in/out during drag.
+- **Pan/zoom defaults**: board starts at 80% scale with grab cursor; bounds derived from note positions so users can't pan into empty space indefinitely.
+- **Shareable URL**: Filters and timeline are URL query params, so users can share and bookmark specific views with collaborators.
+- **URL as undo**: filter changes push history entries (back button restores prior view); timeline commits do the same on slider release.
 
 ---
 
@@ -122,10 +122,10 @@ AI accelerated boilerplate and exploration but all architectural decisions, trad
 
 ### Next steps (with more time)
 
-1. **Server-side filtering + pagination** — wire existing query params on `GET /notes` for large boards; add cursor-based pagination.
+1. **Server-side filtering + pagination:** wire existing query params on `GET /notes` for large boards; add cursor-based pagination.
 2. **Filter-scoped stats** so the stats panel reflects the active view.
-3. **Notes interactions** — click a sticky to bring it up front, and also implement right-click custom menu to provide convenient filter shortcuts ( apply note color or author filter ).
-4. **Virtualization** — if boards grow to thousands of notes, virtualize the note list or move to a canvas layer.
+3. **Notes interactions:** click a sticky to bring it up front, and also implement right-click custom menu to provide convenient filter shortcuts ( apply note color or author filter ).
+4. **Virtualization**: if boards grow to thousands of notes, virtualize the note list or move to a canvas layer.
 
 ---
 
