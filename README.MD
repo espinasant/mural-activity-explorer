@@ -5,7 +5,7 @@ A full-stack app for exploring collaborative board activity — filter sticky no
 - **Server** — Node.js + Express API (`/notes`, `/stats`)
 - **Client** — React + TypeScript
 
-SEE IT LIVE IN: https://mural-activity-explorer.espina-sant.workers.dev/
+APP DEPLOYED IN: [https://mural-activity-explorer.espina-sant.workers.dev/](https://mural-activity-explorer.espina-sant.workers.dev/)
 
 ## Prerequisites
 
@@ -17,8 +17,9 @@ The server and client each have their own environment variables. Create the file
 
 ### Server (`server/`)
 
-| Variable | Required | Example | Description                |
-| -------- | -------- | ------- | -------------------------- |
+
+| Variable | Required | Example | Description             |
+| -------- | -------- | ------- | ----------------------- |
 | `PORT`   | Yes      | `5001`  | Port for the API server |
 
 
@@ -28,11 +29,15 @@ Create `server/.env.local`:
 PORT=5001
 ```
 
+
+
 ### Client (`client/`)
+
 
 | Variable       | Required | Example                 | Description                |
 | -------------- | -------- | ----------------------- | -------------------------- |
 | `VITE_API_URL` | Yes      | `http://localhost:5001` | Base URL of the API server |
+
 
 Create `client/.env.local`:
 
@@ -56,6 +61,8 @@ cd ../client
 npm install
 ```
 
+
+
 ### 2. Start the server
 
 From the `server/` directory:
@@ -70,6 +77,8 @@ The API will be available at `http://localhost:5001`. You can verify it with:
 curl http://localhost:5001/health
 ```
 
+
+
 ### 3. Start the client
 
 In a **separate terminal**, from the `client/` directory:
@@ -82,27 +91,37 @@ Vite will print the local URL (typically `http://localhost:5173`). Open it in yo
 
 ## Available scripts
 
+
+
 ### Server
 
-| Command         | Description                       |
-| --------------- | --------------------------------- |
-| `npm run dev`   | Start the API with hot reload     |
-| `npm run build` | Compile TypeScript to `dist/`     |
-| `npm start`     | Run the compiled production build |
-| `npm run test`  | Run unit tests                    |
-| `npm run test:watch`| Run unit tests in watch mode      |
+
+| Command              | Description                       |
+| -------------------- | --------------------------------- |
+| `npm run dev`        | Start the API with hot reload     |
+| `npm run build`      | Compile TypeScript to `dist/`     |
+| `npm start`          | Run the compiled production build |
+| `npm run test`       | Run unit tests                    |
+| `npm run test:watch` | Run unit tests in watch mode      |
+
+
+
 
 ### Client
 
-| Command             | Description                         |
-| ------------------- | ----------------------------------- |
-| `npm run dev`       | Start the Vite dev server           |
-| `npm run build`     | Type-check and build for production |
-| `npm run preview`   | Preview the production build        |
-| `npm run lint`      | Run ESLint                          |
-| `npm run typecheck` | Run TypeScript without emitting     |
-| `npm run test`      | Run unit tests                       |
-| `npm run test:watch`| Run unit tests in watch mode         |
+
+| Command              | Description                         |
+| -------------------- | ----------------------------------- |
+| `npm run dev`        | Start the Vite dev server           |
+| `npm run build`      | Type-check and build for production |
+| `npm run preview`    | Preview the production build        |
+| `npm run lint`       | Run ESLint                          |
+| `npm run typecheck`  | Run TypeScript without emitting     |
+| `npm run test`       | Run unit tests                      |
+| `npm run test:watch` | Run unit tests in watch mode        |
+
+
+
 
 ## Project structure
 

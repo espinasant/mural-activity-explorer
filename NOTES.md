@@ -67,7 +67,7 @@ React client                          NodeJS Service
   - Backend owns the data and filter metadata.
   - URL query params (`?author=&color=&until=`) are the source of truth for the active view — enabling shareable filtered states without sessions.
   - Client caches the full dataset and applies filters in memory for instant toggling.
-- **Rendering:** HTML elements with absolute positioning (`x`, `y`) rather than Canvas — simpler to build, naturally supports hover/click/accessibility, and performs well at this scale. Used `react-zoom-pan-pinch` for pan/zoom instead of rolling a custom viewport hook since it's battle-tested and fast to implement.
+- **Rendering:** HTML elements with absolute positioning (`x`, `y`) rather than Canvas since it was simpler to build, naturally supports hover/click/accessibility, and performs well with this amount of elements. Used `react-zoom-pan-pinch` for pan/zoom instead of rolling a custom viewport hook since it's battle-tested and fast to implement.
 - **Timeline performance:** While dragging the slider, a transient `previewUntil` state (rAF-throttled) drives visibility without updating the URL. On release, the value commits to URL state via `pushState`. Notes fade via CSS opacity rather than mount/unmount which makes it more performant.
 
 ---
@@ -111,10 +111,10 @@ AI accelerated boilerplate and exploration but all architectural decisions, trad
 
 | Decision                              | Why                                                   | Cost                                                                                        |
 | ------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Client-side filtering                 | Instant UX for hundreds of notes; URL still shareable | Won't scale to 10k+ notes without server-side pagination                                    |
+| Client-side filtering                 | Instant UX for hundreds of notes; URL still shareable | Won't scale to 10k+ notes without server-side filtering and pagination                      |
 | Global stats (not filter-scoped)      | Simpler API and UI for the time box                   | Stats don't update when filters change which can feel inconsistent                          |
 | Bottom bar vs sidebar                 | Keeps canvas maximized                                | Less room for rich filter or analytics panels                                               |
-| React opacity for timeline            | Simple, readable; good enough at this scale           | Less performant than imperative DOM updates or binary-search delta toggling at very large N |
+| React-based approach for timeline     | Simple, readable; good enough at this scale           | Less performant than imperative DOM updates or binary-search delta toggling at very large N |
 | `react-zoom-pan-pinch` vs custom hook | Faster to ship                                        | Less control over zoom-to-cursor behavior                                                   |
 
 
@@ -123,11 +123,9 @@ AI accelerated boilerplate and exploration but all architectural decisions, trad
 ### Next steps (with more time)
 
 1. **Server-side filtering + pagination** — wire existing query params on `GET /notes` for large boards; add cursor-based pagination.
-2. **Filter-scoped stats** — `GET /notes/stats?author=...` so the stats panel reflects the active view.
-3. **Activity-over-time chart** — visualize note creation rate across the session.
-4. **Highlight recently added notes** — `isLatest` is already computed in the view model; surface it visually during timeline scrub.
-5. **Note detail panel** — click a sticky to see full text, author, and timestamp.
-6. **Virtualization** — if boards grow to thousands of notes, virtualize the note list or move to a canvas layer.
+2. **Filter-scoped stats** so the stats panel reflects the active view.
+3. **Notes interactions** — click a sticky to bring it up front, and also implement right-click custom menu to provide convenient filter shortcuts ( apply note color or author filter ).
+4. **Virtualization** — if boards grow to thousands of notes, virtualize the note list or move to a canvas layer.
 
 ---
 
