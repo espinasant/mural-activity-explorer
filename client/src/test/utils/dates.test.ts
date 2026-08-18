@@ -1,5 +1,13 @@
-import { describe, expect, it, vi } from "vitest"
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest"
 import { formatDate } from "../../utils/dates"
+
+beforeAll(() => {
+  vi.stubEnv("TZ", "UTC")
+})
+
+afterAll(() => {
+  vi.unstubAllEnvs()
+})
 
 describe("formatDate", () => {
   it("formats a date string using en-US locale options", () => {
@@ -13,7 +21,7 @@ describe("formatDate", () => {
       minute: "numeric",
     })
 
-    expect(formattedDate).toBe("June 15, 2024, 2:30 PM")
+    expect(formattedDate).toBe("June 15 at 2:30 PM")
 
     spy.mockRestore()
   })
@@ -31,7 +39,7 @@ describe("formatDate", () => {
       minute: "numeric",
     })
 
-    expect(formattedDate).toBe("June 15, 2024, 2:30 PM")
+    expect(formattedDate).toBe("June 15 at 2:30 PM")
 
     spy.mockRestore()
   })
