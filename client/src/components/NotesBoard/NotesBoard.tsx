@@ -16,14 +16,10 @@ interface MaxBounds {
   y: number
 }
 
-const NotesBoard: React.FC<NotesBoardProps> = ({
-  notes,
-  selectedFilters,
-  availableFilters,
-}) => {
+const NotesBoard: React.FC<NotesBoardProps> = ({ notes, selectedFilters }) => {
   const notesViewModel = useMemo(
-    () => buildNotesViewModel(notes, selectedFilters, availableFilters),
-    [notes, selectedFilters, availableFilters]
+    () => buildNotesViewModel(notes, selectedFilters),
+    [notes, selectedFilters]
   )
 
   const maxBounds: MaxBounds = useMemo(() => {
@@ -46,7 +42,9 @@ const NotesBoard: React.FC<NotesBoardProps> = ({
       autoAlignment={{ disabled: true }}
       wheel={{ step: 0.001 }}
     >
-      <TransformComponent wrapperStyle={{ width: "100%", height: "100%", cursor: "grab" }}>
+      <TransformComponent
+        wrapperStyle={{ width: "100%", height: "100%", cursor: "grab" }}
+      >
         <div className="relative h-full w-full">
           {notesViewModel.map((note) => (
             <NoteCard key={note.id} note={note} />

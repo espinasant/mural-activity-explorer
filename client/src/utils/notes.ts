@@ -1,13 +1,9 @@
 import type { Note, NoteViewModel } from "@/types/notes"
 import { isNoteVisible } from "./filters"
-import type { NoteFilter, AvailableFilters } from "@/types/filter"
+import type { NoteFilter } from "@/types/filter"
 
-const getDateCutoff = (availableFilters: AvailableFilters | null) => {
-  return availableFilters?.until?.end
-    ? new Date(availableFilters.until.end).setMinutes(
-        new Date(availableFilters.until.end).getMinutes() - 15
-      )
-    : Date.now()
+const getDateCutoff = (until: number) => {
+  return new Date(until).setMinutes(new Date(until).getMinutes() - 5)
 }
 
 const getNoteDisplayColor = (color: string) => {
@@ -29,14 +25,15 @@ const getNoteDisplayColor = (color: string) => {
 
 const buildNotesViewModel = (
   notes: Note[],
-  selectedFilters: NoteFilter,
-  availableFilters: AvailableFilters | null
+  selectedFilters: NoteFilter
 ): NoteViewModel[] => {
   return notes.map((note) => {
     return {
       ...note,
       isHidden: !isNoteVisible(note, selectedFilters),
-      isLatest: Date.parse(note.createdAt) > getDateCutoff(availableFilters),
+      isLatest:
+        Date.parse(note.createdAt) >
+        getDateCutoff(selectedFilters.until ?? Date.now()),
     }
   })
 }

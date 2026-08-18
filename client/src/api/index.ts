@@ -1,7 +1,7 @@
 import { ApiError } from "./error"
 
 const defaultOptions = {
-  method: 'GET',
+  method: "GET",
   headers: {
     "Content-Type": "application/json",
   },
