@@ -1,9 +1,9 @@
 # Activity Viewer
 
-A full-stack app for exploring collaborative board activity — filter sticky notes by author, color, and time, and scrub through a timeline to see how the board evolved.
+A full-stack app for exploring collaborative board activity. Filter sticky notes by author, color, and time, and scrub through a timeline to see how the board evolved.
 
-- **Server** — Node.js + Express API (`/notes`, `/stats`)
-- **Client** — React + TypeScript
+- **Server**: Node.js + Express API (`/notes`, `/stats`)
+- **Client**: React + TypeScript
 
 APP DEPLOYED IN: [https://mural-activity-explorer.espina-sant.workers.dev/](https://mural-activity-explorer.espina-sant.workers.dev/)
 
@@ -131,7 +131,5 @@ activity-viewer/
 │   └── src/
 ├── client/          # React frontend
 │   └── src/
-└── NOTES.md  # Design decisions and API docs
+└── NOTES.md  # Notes about the project
 ```
-
-For API contracts, data flow, and design rationale, see [ARCHITECTURE.md](./ARCHITECTURE.md).
