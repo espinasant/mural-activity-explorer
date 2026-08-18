@@ -79,11 +79,13 @@ const useNotesFilters = ({
   }
 
   const clearFilters = () => {
-    setFilters({
+    const newFilters = {
       author: filters.author.map((item) => ({ ...item, isEnabled: false })),
       color: filters.color.map((item) => ({ ...item, isEnabled: false })),
       until: availableFilters?.until?.end ?? 0,
-    })
+    } satisfies NotesFiltersOptions
+    setFilters(newFilters)
+    window.history.pushState(null, "", buildFiltersUrl(newFilters))
   }
 
   return {

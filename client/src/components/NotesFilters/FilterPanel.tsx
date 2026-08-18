@@ -66,7 +66,7 @@ const FilterItem: React.FC<FilterItemProps> = ({
         {label ? (
           label(item.value)
         ) : (
-          <p className="w-20 text-sm font-medium">{item.label}</p>
+          <p className="w-30 text-sm font-medium">{item.label}</p>
         )}
         <p className="text-sm text-gray-500">{stats}</p>
       </div>
@@ -90,7 +90,9 @@ const FilterGroup: React.FC<FilterGroupProps> = ({
         {icon}
         <p className="text-sm font-semibold">{title}</p>
       </div>
-      <ul className={cn("flex max-h-40 flex-col flex-wrap gap-2", listClassName)}>
+      <ul
+        className={cn("flex max-h-40 flex-col flex-wrap gap-2", listClassName)}
+      >
         {filters.map((filter) => (
           <li className="flex items-center gap-2" key={filter.value}>
             <FilterItem
